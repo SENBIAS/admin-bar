@@ -1,0 +1,48 @@
+<div class="card">
+    
+    <div class="flex flex-wrap justify-content-center">
+        <div class="col-fixed">
+            <p-speedDial direction="up"></p-speedDial>
+        </div>
+        <div *ngFor="let sueldo of mesas_2">
+            <div class="col-fixed">
+                <p-card header={{sueldo.nombre}} subheader="Card Subheader" [style]="{ width: '360px' }">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" src={{sueldo.url}} />
+                       <!-- <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />--->
+                    </ng-template>
+                    <p>
+                        <p-scroller [items]="items" [itemSize]="50" scrollHeight="200px"  >
+                            <ng-template pTemplate="item" let-item let-options="options">
+                                <div class="flex align-items-center p-2" [ngClass]="{ 'surface-ground': options.odd }" style="height: 50px;">
+                                    <p-button icon="pi pi-times"[disabled]="edit" styleClass="p-button-rounded p-button-danger p-button-text" (onChange)="showEdit(sueldo.nombre)"></p-button>
+                                    {{ item }}
+                                </div>
+                            </ng-template>
+                        </p-scroller>
+                    </p>
+                    <span class="p-buttonset">
+                        <button pButton pRipple label="Save" icon="pi pi-check"></button>
+                        <button pButton pRipple label="New" icon="pi pi-search-plus" (click)="showDialog()"></button>
+                        <button pButton pRipple label="Edit" icon="pi pi-times" (click)="showEdit(sueldo.nombre)"></button>
+                    </span>
+                </p-card>
+            </div> 
+        </div>
+        
+        <p-dialog header="Header" [(visible)]="visibleModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </p-dialog>
+
+
+
+    </div>
+</div>
+
+
+    
+
+

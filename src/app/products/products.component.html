@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <ng-container *ngFor="let i of prod">
+            {{i.licor}}
+            <tr *ngFor="let x of i.presentaciones">
+                {{x.mm}}, {{x.precio_establecimiento}}
+            </tr>
+        </ng-container>
+    </ol>
+</body>
+
+</html>
